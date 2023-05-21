@@ -27,14 +27,29 @@
 
     $controller = new Controller();
 
+    echo "<main id='main'>";
+
     $controller->mostrarIndex($db);
 
+    echo "</main>";
 
-    if (isset($_POST['Identificate'])) {
+    if (isset($_GET['Identificate'])) {
 
-        echo '<script>
-                console.log("HOLA")
-        </script>';
+        $controller->mostrarLogin($db);
+
+
+        if (isset($_POST['Iniciar'])) {
+            echo "<script>
+            let main = $('#main');
+
+            main.empty();
+          </script>";
+        }
+    }
+
+
+    if (isset($_GET['Zapa'])) {
+        $controller->mostrarDetalleZapa();
     }
 
 
